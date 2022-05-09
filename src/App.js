@@ -1,4 +1,9 @@
-console.log("app is running!");
+// console.log("app is running!");
+import SearchInput from './components/SearchInput.js';
+import SearchResult from './components/SearchResult.js';
+import ImageInfo from './components/ImageInfo.js';
+
+import { api } from './api/api.js';
 
 class App {
   $target = null;
@@ -40,3 +45,5 @@ class App {
     this.searchResult.setState(nextData);
   }
 }
+
+new App(document.querySelector(".app"));

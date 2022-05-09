@@ -5,12 +5,19 @@
   font-style: normal; 
 }*/
 
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
 html {
   box-sizing: border-box;
 }
 
-body * {
+body {
   /*font-family: Goyang;*/
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 *,
@@ -19,39 +26,39 @@ body * {
   box-sizing: inherit;
 }
 
-#App {
+.app {
   margin: 1.5em auto;
   max-width: 1200px;
   column-gap: 1.5em;
 }
 
-.SearchResult {
+.cardContainer {
   margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(4, minmax(250px, 1fr));
   grid-gap: 10px;
 }
 
-.SearchResult img {
+.cardContainer img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.SearchResult .item {
-  background-color: #eee;
+.cardContainer .card {
+  background-color: var(--bg-color);
   display: inline-block;
   margin: 0 0 1em;
   width: 100%;
 }
 
-.SearchInput {
+.searchBox {
   width: 100%;
   font-size: 40px;
   padding: 10px 15px;
 }
 
-.ImageInfo {
+.info-section {
   position: fixed;
   left: 0;
   top: 0;
@@ -60,35 +67,33 @@ body * {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.ImageInfo .title {
+.info-section .title {
   display: flex;
   justify-content: space-between;
 }
 
-.ImageInfo .title,
-.ImageInfo .description {
+.info-section .title,
+.info-section .description {
   padding: 5px;
 }
 
-.ImageInfo .content-wrapper {
+.info-section .modalWrapper {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  background-color: var(--bg-color);
   border: 1px solid #eee;
   border-radius: 5px;
 }
 
-.ImageInfo .content-wrapper img {
+.info-section .modalWrapper img {
   width: 100%;
 }
 
-/* dark mode 처리
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: #000;
-    color: white;
+  :root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
   }
 }
-*/

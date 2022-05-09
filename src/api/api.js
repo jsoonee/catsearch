@@ -5,3 +5,5 @@ const api = {
     return fetch(`${API_ENDPOINT}/api/cats/search?q=${keyword}`).then((res) => res.json());
   },
 };
+
+export { api };
