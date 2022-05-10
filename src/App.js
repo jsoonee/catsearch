@@ -1,4 +1,5 @@
 // console.log("app is running!");
+import DarkMode from './components/DarkMode.js';
 import SearchInput from './components/SearchInput.js';
 import SearchResult from './components/SearchResult.js';
 import ImageInfo from './components/ImageInfo.js';
@@ -11,6 +12,10 @@ class App {
 
   constructor($target) {
     this.$target = $target;
+
+    const darkMode = new DarkMode({
+      $target
+    });
 
     this.searchInput = new SearchInput({
       $target,
@@ -37,6 +42,8 @@ class App {
         image: null,
       },
     });
+
+    
   }
 
   setState(nextData) {

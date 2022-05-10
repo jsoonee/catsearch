@@ -6,8 +6,15 @@
 }*/
 
 :root {
-  --bg-color: #ffffff;
-  --text-color: #000000;
+  --bg-color: #fff;
+  --text-color: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #000;
+    --text-color: #fff;
+  }
 }
 
 html {
@@ -18,6 +25,16 @@ body {
   /*font-family: Goyang;*/
   background-color: var(--bg-color);
   color: var(--text-color);
+}
+
+.light {
+  --bg-color: #fff;
+  --text-color: #000;
+}
+
+.dark {
+  --bg-color: #000;
+  --text-color: #fff;
 }
 
 *,
@@ -91,9 +108,71 @@ body {
   width: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #000000;
-    --text-color: #ffffff;
-  }
+/* dark mode switch */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-bottom: 1rem;
 }
+
+/* Hide default HTML checkbox */
+.switch .toggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.round {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #eee;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.round:before {
+  position: absolute;
+  content: "";
+  height: 40px;
+  width: 40px;
+  left: 0px;
+  bottom: 4px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  box-shadow: 0 0px 15px #2020203d;
+  background: white url('https://i.ibb.co/7JfqXxB/sunny.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.toggle:checked + .round {
+  background-color: #3f5277;
+}
+
+.toggle:focus + .round {
+  box-shadow: 0 0 1px white;
+}
+
+.toggle:checked + .round:before {
+  -webkit-transform: translateX(24px);
+  -ms-transform: translateX(24px);
+  transform: translateX(24px);
+  background: white url('https://i.ibb.co/FxzBYR9/night.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
